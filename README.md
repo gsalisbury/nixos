@@ -2,8 +2,8 @@ nixos configurations for various devices
 
 # Structure
 
-    A machine has one or more roles
-    A role is a collection of packages and services
+* A machine has one or more roles
+* A role is a collection of packages and services
 
 # Secrets
 
