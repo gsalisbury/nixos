@@ -4,6 +4,11 @@ let
   secrets = import ../secrets.nix;
 in
 {
+  imports =  [
+    ../programs/shell-bash.nix
+    ../programs/vim.nix
+  ];
+
   time.timeZone = "Australia/Brisbane";
 
   environment.systemPackages = with pkgs; [
