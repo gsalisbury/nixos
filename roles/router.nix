@@ -5,8 +5,9 @@ let
 in
 {
   imports =  [
-    ../services/ppp.nix
+    ../services/coredns.nix
     ../services/kea.nix
+    ../services/ppp.nix
   ];
 
   networking = {
