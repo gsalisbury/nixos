@@ -47,7 +47,6 @@ in
 
     users.root = {
       hashedPassword = secrets.root.hashedPassword;
-      shell = "${pkgs.bash}/bin/bash";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcd0nHFxIedlZwuUaWMAO9WEdZNNu/mJwjNR+VAnCkf"
       ];
@@ -56,7 +55,6 @@ in
     users.gsalisbury = {
       hashedPassword = secrets.gsalisbury.hashedPassword;
       isNormalUser = true;
-      shell = "${pkgs.bash}/bin/bash";
       uid = 1000;
       extraGroups = [ "wheel" "disk" "cdrom" "docker" "audio" "video" "systemd-journal" "dialout" "libvirtd"];
       openssh.authorizedKeys.keys = [

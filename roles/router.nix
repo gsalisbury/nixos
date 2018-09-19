@@ -89,8 +89,10 @@ in
         persist
         maxfail 0
         holdoff 5
+        noipdefault
         lcp-echo-interval 15
         lcp-echo-failure 3
+        ipv6 ,
       '';
     };
   };
