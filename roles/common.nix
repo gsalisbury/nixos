@@ -8,10 +8,9 @@ in
 
   environment.systemPackages = with pkgs; [
     usbutils pciutils nfs-utils psmisc file gptfdisk
-    git gitAndTools.git-crypt gitAndTools.hub
-    python ruby bundler nodejs gcc gnumake
-    curl wget bind dhcp unzip
-    htop tmux picocom stow duplicity
+    git
+    curl wget unzip dnsutils
+    htop
     vim
   ];
 
@@ -20,11 +19,6 @@ in
   };
 
   nix.gc.automatic = true;
-  nix.useChroot = true;
-
-  hardware.enableAllFirmware = true;
-
-  boot.cleanTmpDir = true;
 
   boot.kernel.sysctl = {
     "vm.swappiness" = 20;
