@@ -6,6 +6,7 @@ in
 {
   imports =  [
     ../services/ppp.nix
+    ../services/kea.nix
   ];
 
   networking = {
@@ -47,24 +48,39 @@ in
 
   };
 
+  services.radvd = {
+    enable = false;
+    config = ''
+      interface enp2s0
+      {
+         AdvSendAdvert on;
+         prefix 2001:44b8:2147:1100::/64
+         {
+            AdvOnLink on;
+            AdvAutonomous on;
+            AdvRouterAddr on;
+         };
+       }; 
+    '';
+  };
+
   services.unbound = {
     enable = true;
     interfaces = ["127.0.0.1" "::1"];
-    extraConfig =
-    ''
+    extraConfig = ''
       verbosity: 1
       do-not-query-localhost: no
       qname-minimisation: yes
       domain-insecure: "home"
 
-    forward-zone:
-      name: "home"
-      forward-addr: 127.0.0.1@1053
+      forward-zone:
+        name: "home"
+        forward-addr: 127.0.0.1@1053
     '';
   };
 
   services.ppp = {
-    enable = true;
+    enable = false;
     config.internode = {
       interface = "enp1s0";
       username = secrets.internode.username;
