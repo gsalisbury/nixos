@@ -16,12 +16,7 @@ in
     git
     curl wget unzip dnsutils
     htop
-    vim
   ];
-
-  environment.variables = {
-    EDITOR = "${pkgs.vim}/bin/vim";
-  };
 
   nix.gc.automatic = true;
 
