@@ -5,7 +5,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    coredns
+    nixos.coredns
   ];
 
   environment.etc = {
