@@ -47,19 +47,6 @@ in
 
   };
 
-  services.dnsmasq = {
-    enable = true;
-    servers = [ "192.168.0.253" "1.1.1.1" ];
-    extraConfig = ''
-      domain=home
-      interface=enp2s0
-      interface=enp3s0
-      bind-interfaces
-      dhcp-range=192.168.0.150,192.168.0.199,24h
-      dhcp-range=192.168.1.10,192.168.1.254,24h
-    '';
-  };
-
   services.unbound = {
     enable = true;
     interfaces = ["127.0.0.1" "::1"];
