@@ -48,7 +48,7 @@
     [ { device = "/dev/disk/by-uuid/b41264d7-2f43-4794-8b92-24df1f226f83"; }
     ];
 
-  system.stateVersion = "18.03";
+  system.stateVersion = "18.09";
   system.autoUpgrade.enable = true;
 
   services.haveged.enable = true;
