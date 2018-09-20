@@ -5,7 +5,6 @@ let
 in
 {
   imports =  [
-    ../programs/shell-bash.nix
     ../programs/vim.nix
   ];
 
