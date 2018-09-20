@@ -10,12 +10,6 @@ in
 
   environment.etc = {
     "kea/kea-dhcp4.conf".text = ''
-      # This is a basic configuration for the Kea DHCPv4 sever.
-      # Subnet declarations are commented out and no interfaces are listed.
-      # Therefore, the servers will not listen or respond to any queries.
-      # The basic configuration must be extended to specify interfaces on
-      # which the servers should listen. Also, subnets and options must be
-      # declared.
       {
 
       # DHCPv4 configuration starts here.
@@ -23,7 +17,7 @@ in
       {
       # Add names of interfaces to listen on.
 	"interfaces-config": {
-	  "interfaces": [ "enxb827eba5d180" ]
+	  "interfaces": [ "enp3s0" ]
 	},
 
       # Use Memfile lease database backend to store leases in a CSV file.
@@ -53,11 +47,6 @@ in
       # Global (inherited by all subnets) lease lifetime is mandatory parameter.
 	"valid-lifetime": 4000,
 
-      # Below an example of the simple subnet declaration. Uncomment to
-      # enable it. This is a list, denoted with [ ], of structure, denoted
-      # with { }. Each structure describes a single subnet and may have
-      # several parameters. One of those parameters is "pools" that is
-      # also a list of structures.
 	"subnet4": [
 	{    "subnet": "192.168.0.0/24",
 	     "pools": [ { "pool": "192.168.0.150 - 192.168.0.240" } ] }
@@ -81,9 +70,6 @@ in
 	]
       },
 
-      # Logging configuration starts here. It tells Kea servers to store
-      # all log messages (on severity INFO or more) in a file.
-      # debuglevel variable is used on DEBUG level only.
       "Logging":
       {
 	"loggers": [
@@ -103,4 +89,15 @@ in
       }
     '';
   };
+
+  systemd.services.kea = {
+    description = "ISC KEA IPv4 DHCP daemon";
+    documentation = [ "man:kea-dhcp4(8)" ];
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" "time-sync.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.kea}/bin/kea-dhcp4 -c /etc/kea/kea-dhcp4.conf";
+    };
+    wantedBy = [ "multi-user.target" ];
+  }; 
 }
