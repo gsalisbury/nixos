@@ -5,7 +5,7 @@ let
 in
 {
   imports =  [
-    #../services/coredns.nix
+    ../services/coredns.nix
     ../services/kea.nix
     ../services/ppp.nix
   ];
