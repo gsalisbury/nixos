@@ -24,4 +24,8 @@ in
       enable = true;
     };
   };
+
+  services.etcd = {
+    enable = true;
+  };
 }
