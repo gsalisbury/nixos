@@ -11,9 +11,9 @@ in
   services.kubernetes = {
     apiserver = {
       enable = true;
-      bindAddress = "192.168.0.253";
+      address = "192.168.0.253";
       kubeletHttps = false;
-      basicAuthFile = /etc/kubernetes/.basicAuthFile;
+      basicAuthFile = /etc/kubernetes/basicAuth;
     };
     clusterCidr = "10.1.0.0/16";
     controllerManager = {
