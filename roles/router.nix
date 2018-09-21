@@ -7,6 +7,8 @@ in
   imports =  [
     #../services/coredns.nix
     ../services/kea.nix
+    ../services/kubernetes-master.nix
+    ../services/kubernetes-node.nix
     ../services/ppp.nix
   ];
 

@@ -44,6 +44,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/var/lib/docker" =
+    { device = "/dev/disk/by-partlabel/containers";
+      fsType = "xfs";
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/b41264d7-2f43-4794-8b92-24df1f226f83"; }
     ];
