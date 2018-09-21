@@ -12,7 +12,7 @@ in
     kubelet = {
       enable = true;
       address = "192.168.0.253";
-      clusterDNns = "10.0.0.53";
+      clusterDns = "10.0.0.53";
     };
     proxy = {
       enable = true;
