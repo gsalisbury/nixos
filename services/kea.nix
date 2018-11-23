@@ -17,7 +17,7 @@ in
         {
           # Add names of interfaces to listen on.
           "interfaces-config": {
-            "interfaces": [ "enp3s0" ]
+            "interfaces": [ "enp2s0" ]
           },
 
           # Use Memfile lease database backend to store leases in a CSV file.

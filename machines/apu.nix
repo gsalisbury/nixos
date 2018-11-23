@@ -4,6 +4,8 @@
   imports = [
     ../roles/common.nix
     ../roles/router.nix
+    ../roles/webserver.nix
+    ../roles/poller.nix
   ];
 
   networking = {

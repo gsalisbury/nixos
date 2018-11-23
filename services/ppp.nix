@@ -86,7 +86,7 @@ in
       wantedBy = [ "network.target" ];
 
       serviceConfig = {
-        ExecStart = "${pkgs.ppp}/sbin/pppd call %I nodetach nolog";
+        ExecStart = "${pkgs.ppp}/sbin/pppd call %I nodetach";
       };
     };
 

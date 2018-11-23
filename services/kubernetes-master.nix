@@ -11,7 +11,8 @@ in
   services.kubernetes = {
     apiserver = {
       enable = true;
-      address = "192.168.0.253";
+      address = "192.168.0.254";
+      securePort = 8443;
       kubeletHttps = false;
       basicAuthFile = /etc/kubernetes/basicAuth;
     };

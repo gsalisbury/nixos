@@ -13,8 +13,9 @@ in
   environment.systemPackages = with pkgs; [
     usbutils pciutils nfs-utils psmisc file gptfdisk
     git
-    curl wget unzip dnsutils
-    htop
+    curl wget unzip dnsutils openssl tcpdump
+    htop lm_sensors
+    nix-repl
   ];
 
   nix.gc.automatic = true;
